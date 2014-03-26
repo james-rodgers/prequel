@@ -2,8 +2,7 @@ package net.noerd.prequel
 
 import java.util.Date
 
-import java.sql.ResultSet
-import java.sql.ResultSetMetaData
+import java.sql.{Timestamp, ResultSet, ResultSetMetaData}
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -27,9 +26,10 @@ class ResultSetRow( val rs: ResultSet ) {
     def nextDouble: Option[ Double ] = nextValueOption( rs.getDouble )
     def nextString: Option[ String ] = nextValueOption( rs.getString )
     def nextDate: Option[ Date ] =  nextValueOption( rs.getTimestamp )
+    def nextTimestamp: Option[ Timestamp ] =  nextValueOption( rs.getTimestamp )
     def nextObject: Option[ AnyRef ] = nextValueOption( rs.getObject )
     def nextBinary: Option[ Array[Byte] ] = nextValueOption( rs.getBytes )
-        
+
     def columnNames: Seq[ String ]= {          
         val columnNames = ArrayBuffer.empty[ String ]
         val metaData = rs.getMetaData
@@ -84,6 +84,7 @@ object ResultSetRowImplicits {
     implicit def row2String( row: ResultSetRow ) = StringColumnType( row ).nextValue
     implicit def row2Date( row: ResultSetRow ) = DateColumnType( row ).nextValue
     implicit def row2DateTime( row: ResultSetRow ) = DateTimeColumnType( row ).nextValue
+    implicit def row2Timestamp( row: ResultSetRow ) = TimestampColumnType( row ).nextValue
     implicit def row2Duration( row: ResultSetRow ) = DurationColumnType( row ).nextValue
     implicit def row2Binary( row: ResultSetRow ) = BinaryColumnType( row ).nextValue
 
@@ -95,6 +96,7 @@ object ResultSetRowImplicits {
     implicit def row2StringOption( row: ResultSetRow ) = StringColumnType( row ).nextValueOption
     implicit def row2DateOption( row: ResultSetRow ) = DateColumnType( row ).nextValueOption
     implicit def row2DateTimeOption( row: ResultSetRow ) = DateTimeColumnType( row ).nextValueOption
+    implicit def row2TimestampOption( row: ResultSetRow ) = TimestampColumnType( row ).nextValueOption
     implicit def row2DurationOption( row: ResultSetRow ) = DurationColumnType( row ).nextValueOption
     implicit def row2BinaryOption( row: ResultSetRow ) = BinaryColumnType( row ).nextValueOption
 }
