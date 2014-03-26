@@ -5,6 +5,7 @@ import java.util.{Locale, Date}
 import org.joda.time.DateTime
 import org.joda.time.Duration
 import org.joda.time.format.DateTimeFormatter
+import java.sql.Timestamp
 
 /**
  * Wrap your optional value in NullComparable to compare with null if None. 
@@ -153,6 +154,27 @@ object DateTimeFormattable{
         new DateTimeFormattable( new DateTime( value ) )
     }
 }
+
+
+//
+// DateTime
+//
+class TimestampFormattable( val value: Timestamp )
+  extends Formattable {
+  override def escaped( formatter: SQLFormatter ): String = {
+    formatter.toSQLString( formatter.timeStampFormatter.print( value.getTime ) )
+  }
+  override def addTo( statement: ReusableStatement ): Unit = {
+    statement.addTimestamp( value )
+  }
+}
+
+object TimestampFormattable {
+  def apply( value: Timestamp ) = {
+    new TimestampFormattable( value )
+  }
+}
+
 
 //
 // Duration

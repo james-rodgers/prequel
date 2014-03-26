@@ -5,6 +5,7 @@ import org.joda.time.Duration
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.BeforeAndAfterEach
+import java.sql.Timestamp
 import java.util.Locale
 
 class FormattablesSpec extends FunSpec with ShouldMatchers {
@@ -32,6 +33,10 @@ class FormattablesSpec extends FunSpec with ShouldMatchers {
         ( "DateTimeFormattable should escape 2010-03-13 13:00:00.0000", 
             DateTimeFormattable( formatter.timeStampFormatter.parseDateTime( "2010-03-13 13:00:00.0000" ) ), 
             "'2010-03-13 13:00:00.0000'"
+        ),
+        ( "TimeStampFormattable should escape 2010-03-13 13:00:00.0040", 
+            TimestampFormattable( Timestamp.valueOf( "2010-03-13 13:00:00.0040" ) ), 
+            "'2010-03-13 13:00:00.0040'"
         ),
         ( "DurationFormattable should escape an Duration object", 
             DurationFormattable( Duration.standardHours( 2 ) ), "7200000"

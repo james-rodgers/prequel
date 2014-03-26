@@ -62,16 +62,23 @@ private class ReusableStatement( val wrapped: PreparedStatement, formatter: SQLF
     def addString( value: String ) =
         addValue(wrapped.setString( parameterIndex, formatter.escapeString( value ) ) 
     )
-    
+
     /**
      * Add a Date to the current parameter index. This is done by setTimestamp which
      * looses the Timezone information of the DateTime
      */
     def addDateTime( value: DateTime ): Unit =
-        addValue( wrapped.setTimestamp( parameterIndex, new Timestamp( value.getMillis ) ) 
+        addValue( wrapped.setTimestamp( parameterIndex, new Timestamp( value.getMillis ) )
     )
 
-    /**
+  /**
+   * Add a Timestamp to the current parameter index.
+   */
+    def addTimestamp( value: Timestamp ): Unit =
+        addValue( wrapped.setTimestamp( parameterIndex, value )
+    )
+
+  /**
      * Add Binary (array of bytes) to the current parameter index
      */
     def addBinary( value: Array[Byte] ): Unit = addValue( wrapped.setBytes( parameterIndex, value ) )
