@@ -7,7 +7,6 @@ import org.scalatest.matchers.ShouldMatchers
 
 import net.noerd.prequel.SQLFormatter.DefaultSQLFormatter
 import net.noerd.prequel.SQLFormatterImplicits._
-import net.noerd.prequel.ResultSetRowImplicits._
 
 class SQLFormatterSpec extends FunSpec with ShouldMatchers {
     

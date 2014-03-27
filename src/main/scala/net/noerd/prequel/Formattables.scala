@@ -4,7 +4,6 @@ import java.util.{Locale, Date}
 
 import org.joda.time.DateTime
 import org.joda.time.Duration
-import org.joda.time.format.DateTimeFormatter
 import java.sql.{Timestamp, Date => SqlDate}
 
 /**

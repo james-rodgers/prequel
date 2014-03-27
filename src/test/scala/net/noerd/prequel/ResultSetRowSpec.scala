@@ -1,18 +1,13 @@
 package net.noerd.prequel
 
 import java.util.Date
-import java.sql.{SQLException, Timestamp, Date => SqlDate}
+import java.sql.{Timestamp, Date => SqlDate}
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.BeforeAndAfterEach
 
-import org.joda.time.DateTime
-import org.joda.time.Duration
-import org.joda.time.format.DateTimeFormat
-import org.joda.time.format.DateTimeFormatter
 import net.noerd.prequel.SQLFormatterImplicits._
-import net.noerd.prequel.ResultSetRowImplicits._
 
 class ResultSetRowSpec extends FunSpec with ShouldMatchers with BeforeAndAfterEach {
         

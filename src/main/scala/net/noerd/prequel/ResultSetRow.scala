@@ -2,12 +2,10 @@ package net.noerd.prequel
 
 import java.util.Date
 
-import java.sql.{Timestamp, ResultSet, ResultSetMetaData, Date => SqlDate}
+import java.sql.{Timestamp, ResultSet, Date => SqlDate}
 
 import scala.collection.mutable.ArrayBuffer
 
-import org.joda.time.DateTime
-import org.joda.time.Duration
 
 /**
  * Wraps a ResultSet in a row context. The ResultSetRow gives access

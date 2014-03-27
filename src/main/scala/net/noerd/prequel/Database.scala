@@ -1,6 +1,6 @@
 package net.noerd.prequel
 
-import java.sql.{ SQLException, Connection }
+import java.sql.Connection
 import java.util.Properties
 
 import scala.collection.mutable.{ Map => MMap }

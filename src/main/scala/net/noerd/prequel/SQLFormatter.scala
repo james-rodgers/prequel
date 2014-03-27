@@ -86,9 +86,7 @@ object SQLFormatterImplicits {
     implicit def double2Formattable( wrapped: Double ) = DoubleFormattable( wrapped )
     implicit def dateTime2Formattable( wrapped: DateTime ) = DateTimeFormattable( wrapped )
     implicit def sqlDate2Formattable( wrapped: SqlDate ) = SqlDateFormattable( wrapped )
-
-    // TODO: put back the TimestampFormattable
-    implicit def timeStamp2Formattable( wrapped: Timestamp ) = DateTimeFormattable( new DateTime( wrapped.getTime ) )
+    implicit def timeStamp2Formattable( wrapped: Timestamp ) = TimestampFormattable( wrapped )
     implicit def date2Formattable( wrapped: Date ) = DateTimeFormattable( wrapped )
     implicit def duration2Formattable( wrapped: Duration ) = new DurationFormattable( wrapped )
     implicit def binary2Formattable( wrapped: Array[Byte] ) = new BinaryFormattable( wrapped )

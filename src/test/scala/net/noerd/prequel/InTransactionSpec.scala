@@ -7,7 +7,6 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.BeforeAndAfterEach
 
 import net.noerd.prequel.SQLFormatterImplicits._
-import net.noerd.prequel.ResultSetRowImplicits._
 
 class InTransactionSpec extends FunSpec with ShouldMatchers with BeforeAndAfterEach {
     

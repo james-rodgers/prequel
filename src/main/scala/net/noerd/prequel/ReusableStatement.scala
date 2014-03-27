@@ -1,6 +1,5 @@
 package net.noerd.prequel
 
-import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.{Timestamp, Types, Date => SqlDate}
 

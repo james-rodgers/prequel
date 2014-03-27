@@ -4,7 +4,6 @@ import org.joda.time.Duration
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
-import org.scalatest.BeforeAndAfterEach
 import java.sql.{Timestamp, Date => SqlDate}
 import java.util.Locale
 
