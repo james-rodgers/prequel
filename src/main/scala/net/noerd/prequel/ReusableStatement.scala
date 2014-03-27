@@ -2,8 +2,7 @@ package net.noerd.prequel
 
 import java.sql.Connection
 import java.sql.PreparedStatement
-import java.sql.Timestamp
-import java.sql.Types
+import java.sql.{Timestamp, Types, Date => SqlDate}
 
 import org.joda.time.DateTime
 
@@ -68,15 +67,19 @@ private class ReusableStatement( val wrapped: PreparedStatement, formatter: SQLF
      * looses the Timezone information of the DateTime
      */
     def addDateTime( value: DateTime ): Unit =
-        addValue( wrapped.setTimestamp( parameterIndex, new Timestamp( value.getMillis ) )
-    )
+        addValue( wrapped.setTimestamp( parameterIndex, new Timestamp( value.getMillis ) ) )
 
   /**
    * Add a Timestamp to the current parameter index.
    */
     def addTimestamp( value: Timestamp ): Unit =
-        addValue( wrapped.setTimestamp( parameterIndex, value )
-    )
+        addValue( wrapped.setTimestamp( parameterIndex, value ) )
+
+  /**
+   * Add a java.sql.Date to the current parameter index.
+   */
+    def addSqlDate( value: SqlDate ): Unit =
+        addValue( wrapped.setDate( parameterIndex, value) )
 
   /**
      * Add Binary (array of bytes) to the current parameter index

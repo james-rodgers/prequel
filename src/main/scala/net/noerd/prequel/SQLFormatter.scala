@@ -9,7 +9,7 @@ import org.joda.time.Duration
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
 import org.joda.time.format.ISODateTimeFormat
-import java.sql.Timestamp
+import java.sql.{Timestamp, Date => SqlDate}
 
 /**
  * Currently a private class responsible for formatting SQL used in 
@@ -85,6 +85,9 @@ object SQLFormatterImplicits {
     implicit def float2Formattable( wrapped: Float ) = FloatFormattable( wrapped )
     implicit def double2Formattable( wrapped: Double ) = DoubleFormattable( wrapped )
     implicit def dateTime2Formattable( wrapped: DateTime ) = DateTimeFormattable( wrapped )
+    implicit def sqlDate2Formattable( wrapped: SqlDate ) = SqlDateFormattable( wrapped )
+
+    // TODO: put back the TimestampFormattable
     implicit def timeStamp2Formattable( wrapped: Timestamp ) = DateTimeFormattable( new DateTime( wrapped.getTime ) )
     implicit def date2Formattable( wrapped: Date ) = DateTimeFormattable( wrapped )
     implicit def duration2Formattable( wrapped: Duration ) = new DurationFormattable( wrapped )

@@ -1,7 +1,7 @@
 package net.noerd.prequel
 
 import java.util.Date
-import java.sql.{SQLException, Timestamp}
+import java.sql.{SQLException, Timestamp, Date => SqlDate}
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
@@ -97,6 +97,18 @@ class ResultSetRowSpec extends FunSpec with ShouldMatchers with BeforeAndAfterEa
           }
         } }
 
+        it( "should return a SqlDate" ) { database.transaction { tx =>
+          val now = ( new Date ).getTime
+          val value1 = Some( new SqlDate( now) )
+
+          tx.execute( "create table sqldate_table(c1 date, c2 date)" )
+          tx.execute( "insert into sqldate_table values(?, null)", value1.get )
+          tx.select( "select c1, c2 from sqldate_table" ) { row =>
+            val retrievedDate = row.nextSqlDate.get
+            retrievedDate.toString should equal (value1.get.toString)
+            row.nextSqlDate should equal ( None )
+          }
+        } }
 
       it( "should return a Float" ) { database.transaction { tx =>
             val value1 = Some(1.5f)
