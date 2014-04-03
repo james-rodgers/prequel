@@ -1,10 +1,16 @@
+import sbtrelease.ReleasePlugin._
+
 name := "prequel"
 
 organization := "com.gu"
 
-scalaVersion := "2.10.0"
+scalaVersion := "2.10.4"
 
 releaseSettings
+
+ReleaseKeys.crossBuild := true
+
+crossScalaVersions := Seq("2.9.2", "2.10.4")
 
 // Runtime Dependencies
 libraryDependencies ++= Seq(
