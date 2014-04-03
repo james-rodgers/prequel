@@ -1,7 +1,5 @@
 name := "prequel"
 
-version := "0.3.9.0.1-SNAPSHOT"
-
 organization := "com.gu"
 
 scalaVersion := "2.10.0"
