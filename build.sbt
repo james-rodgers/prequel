@@ -6,6 +6,8 @@ organization := "com.gu"
 
 scalaVersion := "2.10.0"
 
+releaseSettings
+
 // Runtime Dependencies
 libraryDependencies ++= Seq(
     "commons-pool" % "commons-pool" % "1.5.5",
