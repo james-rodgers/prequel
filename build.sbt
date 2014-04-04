@@ -10,7 +10,8 @@ releaseSettings
 
 ReleaseKeys.crossBuild := true
 
-crossScalaVersions := Seq("2.9.2", "2.10.4")
+
+crossScalaVersions := Seq("2.9.2", "2.10.0")
 
 // Runtime Dependencies
 libraryDependencies ++= Seq(
@@ -40,7 +41,7 @@ publishMavenStyle := true
 credentials += Credentials( Path.userHome / ".ivy2" / ".credentials" )
 
 pomExtra := (
-  <url>http://github.com/jpersson/prequel</url>
+  <url>http://github.com/james-rodgers/prequel</url>
   <licenses>
     <license>
       <name>wtfpl</name>
@@ -49,14 +50,14 @@ pomExtra := (
     </license>
   </licenses>
   <scm>
-    <url>https://github.com/jpersson/prequel.git</url>
-    <connection>scm:git:https://github.com/jpersson/prequel.git</connection>
+    <url>https://github.com/james-rodgers/prequel.git</url>
+    <connection>scm:git:https://github.com/james-rodgers/prequel.git</connection>
   </scm>
   <developers>
     <developer>
-      <id>jpersson</id>
-      <name>Johan Persson</name>
-      <url>http://github.com/jpersson</url>
+      <id>james-rodgers</id>
+      <name>James Rodgers</name>
+      <url>http://github.com/james-rodgers</url>
     </developer>
   </developers>
 )

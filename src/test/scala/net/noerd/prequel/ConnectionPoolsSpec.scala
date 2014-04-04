@@ -1,6 +1,5 @@
 package net.noerd.prequel
 
-import java.sql.SQLException
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers

@@ -5,9 +5,7 @@ import org.joda.time.Duration
 
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
-import org.scalatest.BeforeAndAfterEach
 
-import net.noerd.prequel.SQLFormatterImplicits._
 
 trait ColumnTypeSpec[ T ] extends FunSpec with ShouldMatchers {
     

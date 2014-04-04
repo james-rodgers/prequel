@@ -2,9 +2,11 @@ package net.noerd.prequel
 
 import java.util.Date
 
+import java.sql.{ Date => SqlDate }
+import java.sql.Timestamp
+
 import org.joda.time.DateTime
 import org.joda.time.Duration
-import org.joda.time.format.DateTimeFormatter
 
 //
 // String
@@ -75,12 +77,34 @@ class DateTimeColumnType( row: ResultSetRow ) extends ColumnType[ DateTime ] {
 object DateTimeColumnType extends ColumnTypeFactory[ DateTime ] {
     def apply( row: ResultSetRow ) = new DateTimeColumnType( row )
 }
+
 class DateColumnType( row: ResultSetRow ) extends ColumnType[ Date ] {
     override def nextValueOption: Option[ Date ] = row.nextDate
 }
 object DateColumnType extends ColumnTypeFactory[ Date ] {
     def apply( row: ResultSetRow ) = new DateColumnType( row )
 }
+
+//
+// Timestamp
+//
+class TimestampColumnType( row: ResultSetRow ) extends ColumnType[ Timestamp ] {
+  override def nextValueOption: Option[ Timestamp ] = row.nextTimestamp
+}
+object TimestampColumnType extends ColumnTypeFactory[ Timestamp ] {
+    def apply( row: ResultSetRow ) = new TimestampColumnType( row )
+}
+
+//
+// java.sql.Date
+//
+class SqlDateColumnType( row: ResultSetRow ) extends ColumnType[ SqlDate ] {
+  override def nextValueOption: Option[ SqlDate ] = row.nextSqlDate
+}
+object SqlDateColumnType extends ColumnTypeFactory[ SqlDate ] {
+  def apply( row: ResultSetRow ) = new SqlDateColumnType( row )
+}
+
 
 //
 // Duration

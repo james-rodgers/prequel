@@ -1,6 +1,8 @@
 Prequel - SQL is enough
 =======================
 
+This is a fork of Johan Persson's excellent [prequel](https://github.com/jpersson/prequel) library. I've simply added support for java.sql.Timestamp and java.sql.Date.
+
 There are a lot of database libraries out there. Most of them try to create a new abstraction on top of SQL. I think SQL is already a quite nice abstraction for working with data. Prequel aims to make working with this abstraction a bit more comfortable, nothing more.
 
 [![Build Status](https://secure.travis-ci.org/jpersson/prequel.png)](http://travis-ci.org/jpersson/prequel)

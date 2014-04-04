@@ -1,8 +1,6 @@
 package net.noerd.prequel
 
 import java.sql.Connection
-import java.sql.Statement
-import java.sql.ResultSet
 
 import scala.collection.mutable.ArrayBuffer
 
